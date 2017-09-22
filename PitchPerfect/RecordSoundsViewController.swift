@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
+class RecordSoundsViewController: UIViewController {
     
     var audioRecorder: AVAudioRecorder!
 
@@ -28,10 +28,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         stopRecordingButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         
         setUI(recording: false, animated: false)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
 
     @IBAction func recordAudio(_ sender: Any) {
@@ -78,14 +74,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             });
         } else {
             buttonStack.layoutIfNeeded()
-        }
-    }
-    
-    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag {
-            performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
-        } else {
-            print("Recording was not successful")
         }
     }
     
