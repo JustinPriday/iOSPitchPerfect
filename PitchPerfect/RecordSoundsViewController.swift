@@ -22,9 +22,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //Prevent incorrect aspect ratio in button images.
         recordButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         stopRecordingButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        
         setUI(recording: false, animated: false)
     }
     
